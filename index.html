@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TopDown Roofing | AI Growth Partner Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#2A9BB5;--teal-dk:#1E7A90;--teal-lt:#35B8D6;--gold:#E8961E;--gold-lt:#F5A933;--bg:#0B1118;--bg2:#0F1720;--card:#1A2636;--card2:#1F2D3F;--wht:#F0F4F8;--txt:#94A3B8;--mute:#556578;--red:#EF4444;--green:#22C55E;--purple:#8B5CF6}
+html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--wht);font-weight:700;line-height:1.15}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:3px}
+section{padding:100px 0;position:relative}.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;padding:6px 14px;background:rgba(42,155,181,.08);border:1px solid rgba(42,155,181,.2);border-radius:4px}
+.tag.gold{color:var(--gold);background:rgba(232,150,30,.08);border-color:rgba(232,150,30,.2)}
+.tag.red{color:var(--red);background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.2)}
+.tag.purple{color:var(--purple);background:rgba(139,92,246,.08);border-color:rgba(139,92,246,.2)}
+.section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}.section-desc{font-size:1.05rem;color:var(--txt);max-width:660px;margin-bottom:48px}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.12s}.reveal-delay-2{transition-delay:.24s}.reveal-delay-3{transition-delay:.36s}
+
+/* PART DIVIDERS */
+.part-div{padding:80px 0 20px;text-align:center;position:relative}
+.part-div::before{content:'';position:absolute;top:0;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
+.part-num{font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;display:inline-block;padding:8px 20px;border-radius:6px;margin-bottom:12px}
+.part-num.p1{color:var(--teal);background:rgba(42,155,181,.08);border:1px solid rgba(42,155,181,.2)}
+.part-num.p2{color:var(--gold);background:rgba(232,150,30,.08);border:1px solid rgba(232,150,30,.2)}
+.part-num.p3{color:var(--purple);background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2)}
+.part-sub{font-size:1.05rem;color:var(--mute);max-width:520px;margin:0 auto}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .4s}
+.nav.scrolled{background:rgba(11,17,24,.95);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 4px 30px rgba(0,0,0,.4)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-brand{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:700;color:var(--teal);letter-spacing:1px}.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:20px;list-style:none}.nav-links a{color:var(--mute);text-decoration:none;font-size:.78rem;font-weight:500;transition:color .3s;white-space:nowrap}.nav-links a:hover{color:var(--wht)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(42,155,181,.08) 0%,transparent 70%);border-radius:50%}
+.hero-content{position:relative;z-index:1}
+.hero-eyebrow{font-size:.75rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:24px;opacity:0;animation:su .8s .2s forwards}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);margin-bottom:8px;opacity:0;animation:su .8s .3s forwards}.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:clamp(1rem,2vw,1.25rem);color:var(--mute);margin-bottom:40px;max-width:560px;opacity:0;animation:su .8s .5s forwards}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--bg);padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;opacity:0;animation:su .8s .6s forwards}
+.hero-cta:hover{background:var(--teal-lt);transform:translateY(-2px);box-shadow:0 8px 30px rgba(42,155,181,.3)}
+.hero-meta{margin-top:60px;display:flex;gap:40px;opacity:0;animation:su .8s .7s forwards}
+.hero-meta-num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:var(--wht)}
+.hero-meta-label{font-size:.75rem;color:var(--mute);text-transform:uppercase;letter-spacing:1px}
+@keyframes su{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* SHARED CARD/GRID STYLES */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.crd{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:32px;transition:all .4s}
+.crd:hover{border-color:rgba(42,155,181,.15);transform:translateY(-3px)}
+
+/* AUDIT */
+.audit-card{position:relative;overflow:hidden}
+.audit-card.critical::before{content:'CRITICAL';position:absolute;top:12px;right:12px;font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--red);background:rgba(239,68,68,.1);padding:4px 10px;border-radius:3px}
+.audit-card.warning::before{content:'ISSUE';position:absolute;top:12px;right:12px;font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--gold);background:rgba(232,150,30,.1);padding:4px 10px;border-radius:3px}
+.audit-card h4{font-size:1rem;margin-bottom:8px}.audit-card p{font-size:.85rem;line-height:1.7}
+.audit-impact{display:inline-block;margin-top:12px;font-size:.75rem;font-weight:600;color:var(--red);background:rgba(239,68,68,.08);padding:4px 10px;border-radius:4px}
+.audit-impact.gold{color:var(--gold);background:rgba(232,150,30,.08)}
+
+/* BEFORE/AFTER */
+.ba-container{position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06);cursor:col-resize;user-select:none;min-height:460px}
+.ba-side{position:absolute;top:0;bottom:0;overflow:hidden}.ba-side.before{left:0;right:50%;background:var(--card);z-index:1}.ba-side.after{left:0;right:0;background:var(--card2)}
+.ba-content{position:absolute;top:0;left:0;width:100%;height:100%;padding:36px;display:flex;flex-direction:column;justify-content:center}
+.ba-side.before .ba-content{min-width:1100px}
+.ba-label{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;padding:4px 12px;display:inline-block;border-radius:3px;width:fit-content}
+.ba-side.before .ba-label{color:var(--red);background:rgba(239,68,68,.15)}.ba-side.after .ba-label{color:var(--green);background:rgba(34,197,94,.15)}
+.ba-title{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:var(--wht);margin-bottom:16px}
+.ba-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ba-list li{font-size:.82rem;color:var(--txt);display:flex;align-items:flex-start;gap:8px}
+.ba-list li::before{content:'\2717';color:var(--red);font-weight:700;flex-shrink:0}
+.ba-side.after .ba-list li::before{content:'\2713';color:var(--green)}
+.ba-divider{position:absolute;top:0;bottom:0;width:4px;background:var(--teal);z-index:10;left:50%;transform:translateX(-50%);cursor:col-resize}
+.ba-divider::after{content:'\2194';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--teal);color:var(--bg);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;box-shadow:0 0 20px rgba(42,155,181,.4)}
+
+/* STATS */
+.stat-card{text-align:center;padding:28px}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:2.8rem;font-weight:700;margin-bottom:4px}
+.stat-num.red{color:var(--red)}.stat-num.gold{color:var(--gold)}.stat-num.teal{color:var(--teal)}
+.stat-label{font-size:.8rem;color:var(--wht);font-weight:600;margin-bottom:4px}.stat-detail{font-size:.75rem;color:var(--mute)}
+
+/* SOLUTION CARDS */
+.sol-card{border-left:3px solid var(--teal)}.sol-card:hover{border-left-color:var(--gold);transform:translateX(6px);background:var(--card2)}
+.sol-card h4{font-size:1rem;margin-bottom:10px}.sol-card p{font-size:.85rem;line-height:1.7}
+.sol-result{margin-top:12px;font-size:.8rem;color:var(--green);font-weight:600}
+
+/* CALL FLOW */
+.flow{display:flex;flex-direction:column;position:relative;padding-left:40px}
+.flow::before{content:'';position:absolute;left:15px;top:10px;bottom:10px;width:2px;background:linear-gradient(180deg,var(--teal),var(--gold))}
+.flow-step{position:relative;padding:18px 0 18px 24px}
+.flow-dot{position:absolute;left:-33px;top:20px;width:12px;height:12px;background:var(--teal);border-radius:50%;border:2px solid var(--bg)}
+.flow-time{font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:var(--teal);letter-spacing:2px;margin-bottom:3px}
+.flow-title{font-size:.92rem;font-weight:600;color:var(--wht);margin-bottom:3px}.flow-desc{font-size:.8rem;color:var(--mute)}
+
+/* COMP TABLE */
+.comp-table{width:100%;border-collapse:separate;border-spacing:0 4px}
+.comp-table th{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);padding:12px 16px;text-align:left}
+.comp-table th:nth-child(2),.comp-table th:nth-child(3){text-align:center}
+.comp-table td{padding:14px 16px;background:var(--card);font-size:.88rem}
+.comp-table tr td:first-child{border-radius:8px 0 0 8px;color:var(--wht)}.comp-table tr td:last-child{border-radius:0 8px 8px 0}
+.comp-table td:nth-child(2){text-align:center;color:var(--red);text-decoration:line-through}
+.comp-table td:nth-child(3){text-align:center;color:var(--green);font-weight:700}
+.comp-total td{background:var(--card2)!important;font-weight:700;border-top:2px solid var(--gold)}
+.comp-total td:nth-child(2){color:var(--red);font-size:1rem}.comp-total td:nth-child(3){color:var(--gold);font-size:1.1rem;font-family:'Space Grotesk',sans-serif}
+
+/* PRICING */
+.price-card{border-radius:16px;padding:40px;position:relative;overflow:hidden}
+.price-card.featured{border-color:rgba(34,197,94,.3)}.price-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.price-label{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.price-old{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:var(--mute);text-decoration:line-through;display:inline-block;margin-right:12px}
+.price-new{font-family:'Space Grotesk',sans-serif;font-size:2.8rem;font-weight:700;color:var(--wht);display:inline-block}
+.price-discount{display:inline-block;margin-left:12px;background:rgba(232,150,30,.12);color:var(--gold);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:1px;vertical-align:super}
+.price-featured-num{font-family:'Space Grotesk',sans-serif;font-size:2.8rem;font-weight:700;color:var(--green)}.price-period{font-size:1rem;font-weight:400;color:var(--mute)}
+.price-list{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.price-list li{font-size:.85rem;color:var(--txt);display:flex;align-items:flex-start;gap:8px}.price-list li::before{content:'\2713';color:var(--green);font-weight:700;flex-shrink:0}
+
+/* ROI CALC */
+.calc-box{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:40px;max-width:700px;margin:0 auto}
+.calc-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04)}.calc-row:last-child{border:none}
+.calc-label{font-size:.9rem}.calc-value{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700}
+.calc-value.green{color:var(--green)}.calc-value.red{color:var(--red)}.calc-value.big{font-size:1.8rem;color:var(--green)}
+.calc-slider{margin:24px 0;text-align:center}.calc-slider label{font-size:.8rem;color:var(--mute);display:block;margin-bottom:8px}
+.calc-slider input[type=range]{width:100%;max-width:400px;accent-color:var(--teal);cursor:pointer}
+.slider-val{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--gold);margin-top:8px}
+
+/* === ROOFTECH SUITE === */
+.rt-hero{position:relative;overflow:hidden;padding:120px 0 100px;background:linear-gradient(180deg,rgba(139,92,246,.04) 0%,var(--bg) 100%)}
+.rt-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--teal),var(--gold))}
+.rt-badge{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--purple);padding:8px 16px;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2);border-radius:6px;margin-bottom:24px}
+.rt-badge .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* WEATHER ENGINE DEMO */
+.weather-demo{background:var(--card);border:1px solid rgba(139,92,246,.15);border-radius:16px;overflow:hidden;position:relative}
+.weather-demo-header{padding:20px 28px;background:rgba(139,92,246,.06);border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between}
+.weather-demo-header h4{font-size:.9rem;color:var(--wht)}.weather-demo-header .status{font-size:.7rem;color:var(--green);display:flex;align-items:center;gap:6px}
+.weather-demo-header .status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+.weather-demo-body{padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.weather-alert{background:var(--bg2);border-radius:10px;padding:24px;border-left:3px solid var(--red)}
+.weather-alert .alert-type{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.weather-alert h4{font-size:.95rem;margin-bottom:8px}
+.weather-alert .alert-meta{font-size:.75rem;color:var(--mute);margin-bottom:12px}
+.weather-alert .alert-areas{display:flex;flex-wrap:wrap;gap:6px}
+.weather-alert .area-tag{font-size:.65rem;padding:3px 8px;background:rgba(239,68,68,.1);color:var(--red);border-radius:3px;font-weight:600}
+.blog-preview{background:var(--bg2);border-radius:10px;padding:24px;border-left:3px solid var(--green);position:relative}
+.blog-preview .gen-badge{position:absolute;top:12px;right:12px;font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--green);background:rgba(34,197,94,.1);padding:4px 10px;border-radius:3px}
+.blog-preview .blog-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:var(--wht);margin-bottom:8px}
+.blog-preview .blog-excerpt{font-size:.82rem;color:var(--txt);line-height:1.6;margin-bottom:12px}
+.blog-seo{display:flex;flex-direction:column;gap:6px}
+.blog-seo .seo-row{display:flex;align-items:center;gap:8px;font-size:.72rem}
+.blog-seo .seo-label{color:var(--mute);min-width:65px;font-weight:600}
+.blog-seo .seo-val{color:var(--teal);font-family:'Space Grotesk',sans-serif;font-weight:600}
+.blog-seo .seo-tag{display:inline-block;padding:2px 6px;background:rgba(42,155,181,.1);color:var(--teal);border-radius:3px;font-size:.62rem;font-weight:600;margin-right:4px}
+.weather-demo-footer{padding:16px 28px;background:rgba(139,92,246,.04);border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:center}
+.weather-demo-footer span{font-size:.72rem;color:var(--mute)}
+.weather-demo-footer .auto-badge{color:var(--purple);font-weight:700}
+
+/* RADAR ANIMATION */
+.radar-wrap{position:relative;width:200px;height:200px;margin:0 auto 24px}
+.radar-ring{position:absolute;border:1px solid rgba(139,92,246,.15);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.radar-ring:nth-child(1){width:60px;height:60px}.radar-ring:nth-child(2){width:120px;height:120px}.radar-ring:nth-child(3){width:180px;height:180px}
+.radar-sweep{position:absolute;top:50%;left:50%;width:90px;height:2px;background:linear-gradient(90deg,var(--purple),transparent);transform-origin:0 50%;animation:sweep 3s linear infinite}
+@keyframes sweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.radar-dot{position:absolute;width:8px;height:8px;background:var(--red);border-radius:50%;animation:blip 2s infinite}
+.radar-dot:nth-child(5){top:25%;left:60%;animation-delay:.5s}.radar-dot:nth-child(6){top:65%;left:30%;animation-delay:1s}.radar-dot:nth-child(7){top:40%;left:75%;animation-delay:1.5s}
+@keyframes blip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+
+/* RT FEATURES */
+.rt-feature{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:28px;border-top:3px solid var(--purple);transition:all .4s}
+.rt-feature:hover{border-top-color:var(--teal);transform:translateY(-4px)}
+.rt-feature h4{font-size:.95rem;margin-bottom:8px}.rt-feature p{font-size:.82rem;line-height:1.65}
+.rt-feature .rt-status{margin-top:12px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.rt-feature .rt-status.building{color:var(--gold)}.rt-feature .rt-status.live{color:var(--green)}.rt-feature .rt-status.planned{color:var(--purple)}
+
+/* PARTNERSHIP */
+.partner-card{background:linear-gradient(135deg,rgba(232,150,30,.04),rgba(139,92,246,.04));border:1px solid rgba(232,150,30,.2);border-radius:20px;padding:48px;position:relative;overflow:hidden}
+.partner-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--purple),var(--teal))}
+.partner-badge{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:rgba(232,150,30,.1);padding:6px 14px;border-radius:4px;margin-bottom:20px}
+.partner-perks{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+.perk{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:20px}
+.perk h4{font-size:.9rem;color:var(--gold);margin-bottom:6px}.perk p{font-size:.82rem;line-height:1.6}
+.perk-highlight{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold);margin-bottom:4px}
+
+/* GUARANTEE + CTA */
+.guarantee-bar{margin-top:48px;background:var(--card);border:1px solid rgba(42,155,181,.2);border-radius:12px;padding:28px 32px}
+.guarantee-bar h4{font-size:1rem;color:var(--teal);margin-bottom:4px}.guarantee-bar p{font-size:.85rem}
+.cta-section{text-align:center;padding:120px 0}.cta-section h2{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:8px}.cta-section h2 span{color:var(--gold)}
+.cta-steps{display:flex;justify-content:center;gap:40px;margin:40px 0 48px}
+.cta-step-num{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--gold)}.cta-step-text{font-size:.85rem;color:var(--txt);max-width:160px}
+.cta-contact{background:var(--card);border-radius:12px;padding:24px 40px;display:inline-flex;flex-direction:column;align-items:center;gap:4px}
+.cta-name{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--wht);font-size:1rem}.cta-detail{font-size:.85rem;color:var(--teal)}.cta-sub{font-size:.75rem;color:var(--mute)}
+footer{padding:32px 0;border-top:1px solid rgba(255,255,255,.04);text-align:center}footer p{font-size:.75rem;color:var(--mute)}
+
+@media(max-width:768px){.grid-2,.grid-3,.partner-perks,.weather-demo-body{grid-template-columns:1fr}.hero-meta{flex-direction:column;gap:20px}.nav-links{display:none}.cta-steps{flex-direction:column;align-items:center}.radar-wrap{width:150px;height:150px}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav"><div class="nav-inner"><div class="nav-brand">RESONATING <span>VENTURES</span></div><ul class="nav-links"><li><a href="#audit">Audit</a></li><li><a href="#solution">Solution</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#partnership">Partnership</a></li><li><a href="#rooftech">RoofTech</a></li></ul></div></nav>
+
+<!-- HERO -->
+<section class="hero"><div class="container"><div class="hero-content">
+  <div class="hero-eyebrow">A Proposal for TopDown Roofing</div>
+  <h1>Your AI<br><span>Growth Partner</span></h1>
+  <p class="hero-sub">How AI automation can help you answer every call, close more jobs, dominate local search, and grow revenue &mdash; without hiring more people.</p>
+  <a href="#audit" class="hero-cta">See What We Found &darr;</a>
+  <div class="hero-meta"><div><div class="hero-meta-num">10+</div><div class="hero-meta-label">Years in Business</div></div><div><div class="hero-meta-num">5.0&starf;</div><div class="hero-meta-label">Google Rating</div></div><div><div class="hero-meta-num">2 wk</div><div class="hero-meta-label">Launch Time</div></div></div>
+</div></div></section>
+
+<!-- ===== PART 1: WHAT YOU GET RIGHT NOW ===== -->
+<div class="part-div reveal"><div class="container">
+  <div class="part-num p1">PART 1</div>
+  <h2 style="font-size:clamp(1.5rem,3vw,2.2rem);color:var(--wht);margin-bottom:8px">What You Get Right Now</h2>
+  <p class="part-sub">The complete AI growth system &mdash; live in 2 weeks.</p>
+</div></div>
+
+<!-- AUDIT -->
+<section id="audit"><div class="container">
+  <span class="tag red reveal">Website Audit</span>
+  <h2 class="section-title reveal">Where topdownroofing.com Is Losing You Money</h2>
+  <p class="section-desc reveal">Your reputation is incredible &mdash; but your website isn&rsquo;t doing it justice. Here&rsquo;s what we found:</p>
+  <div class="grid-2">
+    <div class="crd audit-card critical reveal"><h4>No Lead Capture Form That Works</h4><p>Your contact form requires JavaScript and shows &ldquo;Notice: JavaScript is required&rdquo; for anyone with scripts blocked. No fallback phone CTA, no email collection.</p><span class="audit-impact">20-30% of mobile visitors lost</span></div>
+    <div class="crd audit-card critical reveal reveal-delay-1"><h4>No SEO Strategy or Schema Markup</h4><p>No structured data (LocalBusiness, Reviews, FAQ). Google can&rsquo;t display rich snippets for your ratings or service areas. Competitors with schema get more clicks.</p><span class="audit-impact">40-60% less search visibility</span></div>
+    <div class="crd audit-card critical reveal reveal-delay-2"><h4>Outdated WordPress &amp; Slow Load</h4><p>Revolution Slider, heavy plugins, &copy;2021 copyright. First impressions happen in 3 seconds &mdash; a slow, dated site drives people to competitors.</p><span class="audit-impact">50% higher bounce rate</span></div>
+    <div class="crd audit-card warning reveal reveal-delay-3"><h4>No Service Area Pages</h4><p>You serve 17+ Nashville-area cities but have zero geo-targeted pages. Invisible for &ldquo;roofer in Mt. Juliet&rdquo; or &ldquo;roof repair Hendersonville.&rdquo;</p><span class="audit-impact gold">Missing 17+ keyword rankings</span></div>
+    <div class="crd audit-card critical reveal"><h4>Social Media Is Inconsistent</h4><p>Instagram has 243 followers but posting is sporadic. X/Twitter hasn&rsquo;t been updated in almost 5 years. Facebook activity is inconsistent. You&rsquo;re completing jobs every week but not all of that work is being turned into consistent content across platforms.</p><span class="audit-impact">No consistent social presence</span></div>
+    <div class="crd audit-card warning reveal reveal-delay-1"><h4>No Click-to-Text or After-Hours</h4><p>No text option, no chat, no AI receptionist, no after-hours capture. Every call you miss while on the roof goes to a competitor.</p><span class="audit-impact gold">3-5 lost leads/week</span></div>
+    <div class="crd audit-card warning reveal reveal-delay-2"><h4>No Review Automation</h4><p>234+ Google reviews is solid &mdash; but competitors in Nashville have 400-800+. Without automated review requests after every job, you&rsquo;re leaving growth on the table.</p><span class="audit-impact gold">Competitors: 400-800+ reviews</span></div>
+    <div class="crd audit-card warning reveal reveal-delay-3"><h4>No Analytics Whatsoever</h4><p>Facebook Pixel present but no GA4, no GTM, no conversion tracking. You have zero visibility into what&rsquo;s working.</p><span class="audit-impact gold">Flying blind on ROI</span></div>
+  </div>
+</div></section>
+
+<!-- BEFORE/AFTER -->
+<section id="compare" style="padding-top:60px"><div class="container">
+  <span class="tag reveal">Before &amp; After</span>
+  <h2 class="section-title reveal">Drag to Compare: Current Site vs. What We Built</h2>
+  <p class="section-desc reveal">We didn&rsquo;t just find problems &mdash; we already built the solution.</p>
+  <div class="ba-container reveal" id="baSlider">
+    <div class="ba-side after"><div class="ba-content" style="padding-left:calc(50% + 36px)"><span class="ba-label">NEW SITE BY RESONATING VENTURES</span><div class="ba-title">Modern. Fast. Converts.</div><ul class="ba-list"><li>Full lead capture form with urgency selector</li><li>Click-to-call AND click-to-text CTAs</li><li>Schema markup (LocalBusiness, Reviews, FAQ)</li><li>17 service area cities with geo-targeting</li><li>Gallery with neighborhood-tagged images</li><li>Hearth financing integration throughout</li><li>GA4 + GTM + Facebook Pixel tracking</li><li>Sub-2-second load, mobile-optimized</li></ul></div></div>
+    <div class="ba-side before" id="baBefore"><div class="ba-content"><span class="ba-label">CURRENT TOPDOWNROOFING.COM</span><div class="ba-title">Outdated. Slow. Leaking Leads.</div><ul class="ba-list"><li>JavaScript-dependent form breaks on mobile</li><li>No text option, no after-hours capture</li><li>Zero schema markup or structured data</li><li>No service area pages at all</li><li>Inconsistent social media &mdash; X dead for 5 years</li><li>Financing buried in nav dropdown</li><li>No Google Analytics, no conversion data</li><li>Slow WordPress with Revolution Slider</li></ul></div></div>
+    <div class="ba-divider" id="baDivider"></div>
+  </div>
+  <p style="text-align:center;margin-top:12px;font-size:.75rem;color:var(--mute);font-style:italic" class="reveal">&larr; Drag the slider to compare &rarr;</p>
+</div></section>
+
+<!-- PROBLEM -->
+<section id="problem"><div class="container">
+  <span class="tag red reveal">The Reality</span>
+  <h2 class="section-title reveal">What Happens When You&rsquo;re On the Roof</h2>
+  <p class="section-desc reveal">Every day, roofing contractors lose thousands to problems that are completely solvable:</p>
+  <div class="grid-3" style="margin-bottom:48px">
+    <div class="crd stat-card reveal"><div class="stat-num red">62%</div><div class="stat-label">Of calls go unanswered</div><div class="stat-detail">Each one is a potential $8K-$15K job</div></div>
+    <div class="crd stat-card reveal reveal-delay-1"><div class="stat-num gold">78%</div><div class="stat-label">Hire the first responder</div><div class="stat-detail">Speed-to-lead is #1 &mdash; not price</div></div>
+    <div class="crd stat-card reveal reveal-delay-2"><div class="stat-num teal">5x</div><div class="stat-label">More calls at 500+ reviews</div><div class="stat-detail">Review velocity drives local rankings</div></div>
+  </div>
+  <div class="reveal" style="background:var(--card);border-left:3px solid var(--gold);border-radius:8px;padding:24px 28px"><p style="font-size:1rem;color:var(--gold);font-weight:600">The average roofing company loses $180,000+/year in missed opportunities. The fix isn&rsquo;t working harder &mdash; it&rsquo;s working smarter.</p></div>
+</div></section>
+
+<!-- AI RECEPTIONIST -->
+<section><div class="container">
+  <span class="tag reveal">Deep Dive</span>
+  <h2 class="section-title reveal">AI Phone Receptionist &mdash; How It Works</h2>
+  <p class="section-desc reveal">What happens when a homeowner calls while you&rsquo;re on a roof:</p>
+  <div class="flow reveal">
+    <div class="flow-step"><div class="flow-dot"></div><div class="flow-time">0:00</div><div class="flow-title">Customer calls (615) 579-0758</div><div class="flow-desc">Found you on Google after last night&rsquo;s storm. You&rsquo;re 20 feet up.</div></div>
+    <div class="flow-step"><div class="flow-dot"></div><div class="flow-time">0:01</div><div class="flow-title">AI answers in your company&rsquo;s voice</div><div class="flow-desc">&ldquo;Hi, thanks for calling TopDown Roofing! How can I help you today?&rdquo;</div></div>
+    <div class="flow-step"><div class="flow-dot"></div><div class="flow-time">0:30</div><div class="flow-title">AI qualifies the lead</div><div class="flow-desc">Damage type, insurance status, address, urgency.</div></div>
+    <div class="flow-step"><div class="flow-dot"></div><div class="flow-time">1:30</div><div class="flow-title">Inspection booked automatically</div><div class="flow-desc">AI checks your calendar and offers available slots.</div></div>
+    <div class="flow-step"><div class="flow-dot"></div><div class="flow-time">1:31</div><div class="flow-title">You get a text with full details</div><div class="flow-desc">Lead name, address, damage type, insurance, appointment.</div></div>
+    <div class="flow-step"><div class="flow-dot"></div><div class="flow-time">1:32</div><div class="flow-title">Customer gets confirmation</div><div class="flow-desc">Branded text with details. Impressed before you show up.</div></div>
+  </div>
+</div></section>
+
+<!-- SOLUTION -->
+<section id="solution"><div class="container">
+  <span class="tag reveal">The Solution</span>
+  <h2 class="section-title reveal">What&rsquo;s Included &mdash; Starting Day One</h2>
+  <div class="grid-2">
+    <div class="crd sol-card reveal"><h4>AI Phone Receptionist</h4><p>Answers every call 24/7. Qualifies leads, captures info, books inspections into your calendar.</p><div class="sol-result">3&ndash;5 additional leads per week</div></div>
+    <div class="crd sol-card reveal reveal-delay-1"><h4>Automated Lead Follow-Up</h4><p>Confirmation text in 60 seconds, then a 5-touch SMS + email sequence over 7 days.</p><div class="sol-result">35&ndash;40% increase in close rate</div></div>
+    <div class="crd sol-card reveal reveal-delay-2"><h4>Review Generation Engine</h4><p>Auto-texts customers a Google review link after every job. Target: 500+ reviews in 12 months.</p><div class="sol-result">From 234 to 500+ in 12 months</div></div>
+    <div class="crd sol-card reveal reveal-delay-3"><h4>Local SEO Domination</h4><p>Optimized site, weekly GBP posts, AI content targeting 17 Nashville neighborhoods.</p><div class="sol-result">Rank #1 for &ldquo;roofer near me&rdquo; Nashville</div></div>
+    <div class="crd sol-card reveal"><h4>Custom Website + Hosting</h4><p>A brand new, mobile-optimized website with schema markup, 17 service area pages, lead capture, click-to-text, and Hearth financing &mdash; hosted and maintained by us.</p><div class="sol-result">Your new site is already built and ready</div></div>
+    <div class="crd sol-card reveal reveal-delay-1"><h4>Performance Dashboard</h4><p>Real-time: calls answered, leads captured, jobs booked, reviews, revenue.</p><div class="sol-result">Full visibility into your growth</div></div>
+  </div>
+</div></section>
+
+<!-- VALUE COMPARISON -->
+<section><div class="container">
+  <span class="tag gold reveal">Value Comparison</span>
+  <h2 class="section-title reveal">One System Replaces $4,400+/Month in Separate Tools</h2>
+  <table class="comp-table reveal"><thead><tr><th>Tool / Service</th><th>Typical Cost</th><th>With Us</th></tr></thead><tbody>
+    <tr><td>Live answering service</td><td>$300&ndash;$700/mo</td><td>Included</td></tr>
+    <tr><td>CRM software (ServiceTitan, Jobber)</td><td>$300&ndash;$500/mo</td><td>Included</td></tr>
+    <tr><td>Review platform (Birdeye, Podium)</td><td>$200&ndash;$400/mo</td><td>Included</td></tr>
+    <tr><td>SEO agency</td><td>$1,000&ndash;$2,500/mo</td><td>Included</td></tr>
+    <tr><td>Website hosting + maintenance</td><td>$100&ndash;$300/mo</td><td>Included</td></tr>
+    <tr class="comp-total"><td>Total if purchased separately</td><td>$1,900&ndash;$4,400/mo</td><td>$997/mo</td></tr>
+  </tbody></table>
+</div></section>
+
+<!-- ROI -->
+<section id="roi"><div class="container">
+  <span class="tag reveal">The Math</span>
+  <h2 class="section-title reveal">Interactive ROI Calculator</h2>
+  <p class="section-desc reveal">Drag the slider to see how quickly this pays for itself:</p>
+  <div class="calc-box reveal">
+    <div class="calc-slider"><label>Extra roofs closed per month thanks to AI system:</label><input type="range" min="1" max="8" value="2" id="roofSlider" oninput="updateCalc()"><div class="slider-val" id="roofCount">2 extra roofs/month</div></div>
+    <div class="calc-row"><span class="calc-label">Average roof revenue</span><span class="calc-value" style="color:var(--wht)">$12,000</span></div>
+    <div class="calc-row"><span class="calc-label">Monthly revenue added</span><span class="calc-value green" id="calcRevenue">$24,000</span></div>
+    <div class="calc-row"><span class="calc-label">Monthly system cost</span><span class="calc-value red">$997</span></div>
+    <div class="calc-row"><span class="calc-label">Monthly net profit</span><span class="calc-value green" id="calcProfit">$23,003</span></div>
+    <div class="calc-row" style="border:none;padding-top:20px"><span class="calc-label" style="font-weight:700;color:var(--wht)">Annual ROI</span><span class="calc-value big" id="calcROI">2,306%</span></div>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section id="pricing"><div class="container">
+  <span class="tag gold reveal">The Offer</span>
+  <h2 class="section-title reveal">Simple Pricing. Real Results.</h2>
+  <p class="section-desc reveal">No long-term contracts. No hidden fees. Just measurable growth.</p>
+  <div class="grid-2">
+    <div class="crd price-card reveal"><div class="price-label">One-Time Setup</div><div><span class="price-old">$6,900</span><span class="price-new">$4,830</span></div><span class="price-discount">30% FRIENDS &amp; FAMILY</span><ul class="price-list"><li>Brand new custom website (already built &mdash; ready to deploy)</li><li>Complete CRM setup with your pipeline</li><li>AI receptionist trained on your services</li><li>Review automation configured &amp; tested</li><li>Google Business Profile optimization</li><li>All integrations connected &amp; tested</li><li>Team training session (1 hour)</li></ul></div>
+    <div class="crd price-card featured reveal reveal-delay-1"><div class="price-label" style="color:var(--green)">Monthly Growth</div><div><span class="price-featured-num">$997</span><span class="price-period">/month</span></div><ul class="price-list"><li>Website hosting, maintenance &amp; updates</li><li>AI receptionist answering calls 24/7/365</li><li>Full CRM with automated lead follow-up</li><li>Review request automation after every job</li><li>Local SEO: weekly GBP posts + monthly blogs</li><li>Live performance dashboard</li><li>Ongoing optimization based on results</li><li>Dedicated support &mdash; you call, we answer</li></ul></div>
+  </div>
+  
+  <!-- WHITE GLOVE ONBOARDING -->
+  <div class="reveal" style="margin-top:48px;background:var(--card);border:1px solid rgba(42,155,181,.15);border-radius:16px;padding:36px 40px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold))"></div>
+    <div style="display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap">
+      <div style="flex:1;min-width:280px">
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:10px">WHITE GLOVE ONBOARDING</div>
+        <h3 style="font-size:1.3rem;color:var(--wht);margin-bottom:10px">We Handle Everything. You Stay on the Roof.</h3>
+        <p style="font-size:.92rem;line-height:1.75;color:var(--txt)">Setup is done 100% remotely &mdash; we work with one internal contact on your team to get access to what we need, and handle the rest. No office visits required, no disruption to your day-to-day, no technical knowledge needed. Your team keeps doing what they do best while we build everything behind the scenes.</p>
+      </div>
+      <div style="flex:0 0 auto;display:flex;flex-direction:column;gap:10px;min-width:220px">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,155,181,.06);border-radius:8px"><span style="color:var(--teal);font-size:1.1rem">&#10003;</span><span style="font-size:.82rem;color:var(--wht);font-weight:500">100% remote integration</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,155,181,.06);border-radius:8px"><span style="color:var(--teal);font-size:1.1rem">&#10003;</span><span style="font-size:.82rem;color:var(--wht);font-weight:500">Single point of contact on your end</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,155,181,.06);border-radius:8px"><span style="color:var(--teal);font-size:1.1rem">&#10003;</span><span style="font-size:.82rem;color:var(--wht);font-weight:500">Minimal time needed from your team</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,155,181,.06);border-radius:8px"><span style="color:var(--teal);font-size:1.1rem">&#10003;</span><span style="font-size:.82rem;color:var(--wht);font-weight:500">Full training when everything is live</span></div>
+      </div>
+    </div>
+  </div>
+  
+</div></section>
+<div class="part-div reveal"><div class="container">
+  <div class="part-num p2">PART 2</div>
+  <h2 style="font-size:clamp(1.5rem,3vw,2.2rem);color:var(--wht);margin-bottom:8px">But We Want More Than a Client</h2>
+  <p class="part-sub">We want a partner. Here&rsquo;s the bigger picture.</p>
+</div></div>
+
+<!-- FLAGSHIP PARTNERSHIP -->
+<section id="partnership" style="padding-bottom:60px"><div class="container">
+  <h2 class="section-title reveal">The Vision</h2>
+  <p class="section-desc reveal" style="max-width:720px">Troy &mdash; the growth system above is just the beginning. Our real mission is to build proprietary AI software for the roofing industry. We need a flagship company to prove it works. We want that to be TopDown Roofing.</p>
+
+  <div class="reveal" style="background:var(--card);border-radius:12px;padding:32px;margin-bottom:40px;border-left:3px solid var(--gold)">
+    <h4 style="color:var(--gold);margin-bottom:12px;font-size:1.05rem">Here&rsquo;s How This Works</h4>
+    <p style="font-size:.95rem;line-height:1.8;color:var(--txt)">You sign up for the AI Growth System above &mdash; that&rsquo;s real, deliverable, and launches in 2 weeks. As we build each new proprietary tool, we integrate it into <em>your</em> operations first. You&rsquo;re the pilot program. If it outperforms existing tools &mdash; we move forward as business partners. Every roofing company that signs up because of your results puts money in your pocket.</p>
+  </div>
+
+
+
+  <div class="partner-card reveal">
+    <div class="partner-badge">&#9733; FLAGSHIP PARTNER &mdash; TOPDOWN ROOFING</div>
+    <h3 style="font-size:1.5rem;margin-bottom:8px">How This Works</h3>
+    <p style="font-size:.95rem;color:var(--txt);max-width:700px;line-height:1.7">As we build each RoofTech Suite module, we integrate it into your operations first. You&rsquo;re the pilot program. If it outperforms existing tools &mdash; which we believe it will &mdash; we move forward as business partners. You become the case study, the reference, and the first affiliate. Every roofing company that signs up because of your results puts money in your pocket.</p>
+
+    <div class="partner-perks">
+      <div class="perk"><div class="perk-highlight">15%</div><h4>Revenue Share</h4><p>Earn 15% of revenue on every roofing company that signs up through your referral. Recurring, for as long as they&rsquo;re a customer. No cap.</p></div>
+      <div class="perk"><div class="perk-highlight">First</div><h4>First Access to Every Tool</h4><p>Every RoofTech Suite module launches on your business first. Storm blog engine, lead gen tools, competitor intel &mdash; you get it before anyone else.</p></div>
+      <div class="perk"><div class="perk-highlight" style="font-size:1.4rem">&#9733; &#9733; &#9733;</div><h4>Co-Branded Case Study</h4><p>&ldquo;Powered by RoofTech Suite &mdash; as used by TopDown Roofing.&rdquo; Your name, your results, your story at the center of our marketing.</p></div>
+      <div class="perk"><div class="perk-highlight" style="color:var(--green)">$0</div><h4>Zero Additional Cost</h4><p>New RoofTech tools get integrated into your existing package at no extra charge. You experience them first, for free.</p></div>
+    </div>
+  </div>
+</div></section>
+
+
+<!-- ===== PART 3: WHAT WE'RE BUILDING ===== -->
+<div class="part-div reveal" style="padding-bottom:0"><div class="container">
+  <div class="part-num p3">PART 3</div>
+  <h2 style="font-size:clamp(1.5rem,3vw,2.2rem);color:var(--wht);margin-bottom:8px">What We&rsquo;re Building</h2>
+  <p class="part-sub">Proprietary AI software for roofing &mdash; and you get it first.</p>
+</div></div>
+
+<!-- ======================== -->
+<!-- ROOFTECH SUITE SECTION   -->
+<!-- ======================== -->
+<section class="rt-hero" id="rooftech">
+<div class="container">
+  <div class="rt-badge reveal"><span class="dot"></span> ROOFTECH SUITE &mdash; EXCLUSIVE PREVIEW</div>
+  <h2 class="section-title reveal" style="font-size:clamp(2rem,4.5vw,3.2rem)">The AI-Powered Blog Engine<br>That <span style="color:var(--purple)">Writes Itself</span></h2>
+  <p class="section-desc reveal">We&rsquo;re building something no one else has: a content engine that monitors Middle Tennessee weather events in real time and automatically generates SEO-optimized blog posts targeting the exact searches homeowners make the morning after a storm.</p>
+
+  <!-- RADAR ANIMATION -->
+  <div class="radar-wrap reveal">
+    <div class="radar-ring"></div><div class="radar-ring"></div><div class="radar-ring"></div>
+    <div class="radar-sweep"></div>
+    <div class="radar-dot"></div><div class="radar-dot"></div><div class="radar-dot"></div>
+  </div>
+
+  <!-- LIVE DEMO -->
+  <div class="weather-demo reveal">
+    <div class="weather-demo-header">
+      <h4>&#9729; RoofTech Storm Monitor &mdash; Middle Tennessee</h4>
+      <div class="status">Monitoring Live</div>
+    </div>
+    <div class="weather-demo-body">
+      <div class="weather-alert">
+        <div class="alert-type">&#9888; Severe Thunderstorm Warning</div>
+        <h4>Large Hail &amp; Damaging Winds Expected</h4>
+        <div class="alert-meta">NWS Nashville &bull; Issued 2:34 PM CST &bull; Feb 21, 2026</div>
+        <p style="font-size:.8rem;color:var(--txt);margin-bottom:12px">Golf ball sized hail and wind gusts to 65mph expected across Davidson, Wilson, and Rutherford counties through 5:00 PM. Significant roof damage likely in affected areas.</p>
+        <div class="alert-areas">
+          <span class="area-tag">Nashville</span><span class="area-tag">Hermitage</span><span class="area-tag">Mt. Juliet</span><span class="area-tag">Lebanon</span><span class="area-tag">Donelson</span><span class="area-tag">Old Hickory</span>
+        </div>
+      </div>
+      <div class="blog-preview">
+        <div class="gen-badge">AI-GENERATED &bull; READY TO PUBLISH</div>
+        <div style="font-size:.65rem;color:var(--purple);font-weight:700;letter-spacing:2px;margin-bottom:8px">BLOG POST AUTO-DRAFTED</div>
+        <div class="blog-title">Hail Damage Roof Repair in Hermitage TN &mdash; What Homeowners Need to Know After Today&rsquo;s Storm</div>
+        <div class="blog-excerpt">If you live in Hermitage, Mt. Juliet, or the greater Nashville area, today&rsquo;s severe thunderstorm may have caused significant damage to your roof. Here&rsquo;s what to look for, how to file an insurance claim, and why you should schedule a free inspection before hidden damage gets worse&hellip;</div>
+        <div class="blog-seo">
+          <div class="seo-row"><span class="seo-label">Title Tag</span><span class="seo-val">Hail Damage Roof Repair Hermitage TN | Free Inspection</span></div>
+          <div class="seo-row"><span class="seo-label">Keywords</span><span><span class="seo-tag">hail damage roof hermitage tn</span><span class="seo-tag">storm damage repair nashville</span><span class="seo-tag">free roof inspection</span></span></div>
+          <div class="seo-row"><span class="seo-label">Schema</span><span class="seo-val">Article + LocalBusiness + FAQPage</span></div>
+          <div class="seo-row"><span class="seo-label">Word Count</span><span class="seo-val">1,450 words &bull; 6 min read</span></div>
+          <div class="seo-row"><span class="seo-label">Score</span><span class="seo-val" style="color:var(--green)">92/100 SEO Optimized</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="weather-demo-footer">
+      <span><span class="auto-badge">FULLY AUTOMATED</span> &mdash; Weather detected &rarr; Blog drafted &rarr; SEO optimized &rarr; Ready for review in under 3 minutes</span>
+      <span style="color:var(--teal);font-weight:600;font-size:.72rem">Powered by RoofTech Suite</span>
+    </div>
+  </div>
+
+  <!-- SOCIAL AUTOPILOT DEMO -->
+  <div style="margin-top:48px" class="reveal">
+    <div class="weather-demo" style="border-color:rgba(42,155,181,.15)">
+      <div class="weather-demo-header" style="background:rgba(42,155,181,.06)">
+        <h4>&#128247; RoofTech Social Autopilot</h4>
+        <div class="status">System Active</div>
+      </div>
+      <div class="weather-demo-body">
+        <div style="background:var(--bg2);border-radius:10px;padding:24px;border-left:3px solid var(--teal)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;color:var(--teal);margin-bottom:8px">TRIGGER: JOB COMPLETED + REVIEW RECEIVED</div>
+          <h4 style="font-size:.95rem;color:var(--wht);margin-bottom:10px">Kristen D. &mdash; Full Roof Replacement</h4>
+          <div style="font-size:.82rem;color:var(--txt);margin-bottom:8px">&starf;&starf;&starf;&starf;&starf; &ldquo;Absolutely the company to call for your roofing needs! Troy communicated every step of the way...&rdquo;</div>
+          <div style="font-size:.72rem;color:var(--mute);margin-bottom:12px">&#128205; Hermitage, TN &bull; 4 job photos uploaded</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span style="font-size:.6rem;padding:4px 8px;background:rgba(42,155,181,.1);color:var(--teal);border-radius:3px;font-weight:700">4 PHOTOS</span>
+            <span style="font-size:.6rem;padding:4px 8px;background:rgba(34,197,94,.1);color:var(--green);border-radius:3px;font-weight:700">5-STAR REVIEW</span>
+            <span style="font-size:.6rem;padding:4px 8px;background:rgba(232,150,30,.1);color:var(--gold);border-radius:3px;font-weight:700">INSURANCE CLAIM</span>
+          </div>
+        </div>
+        <div style="background:var(--bg2);border-radius:10px;padding:24px;border-left:3px solid var(--green);position:relative">
+          <div style="position:absolute;top:12px;right:12px;font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--green);background:rgba(34,197,94,.1);padding:4px 10px;border-radius:3px">5 POSTS GENERATED</div>
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;color:var(--green);margin-bottom:12px">AI AUTO-GENERATED CONTENT</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,.02);border-radius:6px">
+              <span style="font-size:.85rem">&#128247;</span>
+              <div><div style="font-size:.78rem;font-weight:600;color:var(--wht)">Instagram Carousel</div><div style="font-size:.68rem;color:var(--mute)">Before/after photos + testimonial overlay + geo-tags</div></div>
+              <span style="margin-left:auto;font-size:.6rem;padding:3px 8px;background:rgba(34,197,94,.15);color:var(--green);border-radius:3px;font-weight:700">QUEUED</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,.02);border-radius:6px">
+              <span style="font-size:.85rem">&#128220;</span>
+              <div><div style="font-size:.78rem;font-weight:600;color:var(--wht)">Facebook Post</div><div style="font-size:.68rem;color:var(--mute)">Project story + photos + review quote + CTA</div></div>
+              <span style="margin-left:auto;font-size:.6rem;padding:3px 8px;background:rgba(34,197,94,.15);color:var(--green);border-radius:3px;font-weight:700">QUEUED</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,.02);border-radius:6px">
+              <span style="font-size:.85rem">&#128172;</span>
+              <div><div style="font-size:.78rem;font-weight:600;color:var(--wht)">X/Twitter Update</div><div style="font-size:.68rem;color:var(--mute)">Concise project highlight + best photo + hashtags</div></div>
+              <span style="margin-left:auto;font-size:.6rem;padding:3px 8px;background:rgba(34,197,94,.15);color:var(--green);border-radius:3px;font-weight:700">QUEUED</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,.02);border-radius:6px">
+              <span style="font-size:.85rem">&#127959;</span>
+              <div><div style="font-size:.78rem;font-weight:600;color:var(--wht)">Google Business Profile</div><div style="font-size:.68rem;color:var(--mute)">Project update with photos + neighborhood tag</div></div>
+              <span style="margin-left:auto;font-size:.6rem;padding:3px 8px;background:rgba(34,197,94,.15);color:var(--green);border-radius:3px;font-weight:700">QUEUED</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,.02);border-radius:6px">
+              <span style="font-size:.85rem">&#128188;</span>
+              <div><div style="font-size:.78rem;font-weight:600;color:var(--wht)">LinkedIn Update</div><div style="font-size:.68rem;color:var(--mute)">Professional project showcase for B2B visibility</div></div>
+              <span style="margin-left:auto;font-size:.6rem;padding:3px 8px;background:rgba(34,197,94,.15);color:var(--green);border-radius:3px;font-weight:700">QUEUED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weather-demo-footer">
+        <span><span class="auto-badge">FULLY AUTOMATED</span> &mdash; Job complete &rarr; Photos + review captured &rarr; 5 platform-specific posts generated &rarr; Queued for publishing</span>
+        <span style="color:var(--teal);font-weight:600;font-size:.72rem">Powered by RoofTech Suite</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROOFTECH FEATURES -->
+  <h3 class="reveal" style="font-size:1.3rem;margin:48px 0 24px">What&rsquo;s Coming in the RoofTech Suite</h3>
+  <p class="reveal" style="font-size:.92rem;color:var(--txt);margin-bottom:32px;max-width:600px">TopDown Roofing will be the first company to run these tools. As we build each module, it gets integrated into your operations &mdash; and you&rsquo;ll see the results in real time.</p>
+
+  <div class="grid-2">
+    <div class="rt-feature reveal"><h4>&#9729; Storm Blog Engine</h4><p>Monitors NWS alerts for Middle TN. Auto-generates geo-targeted, SEO-rich blog posts within minutes of severe weather. Publishes with schema markup, Open Graph tags, and internal links.</p><div class="rt-status building">&#9679; Building Now</div></div>
+    <div class="rt-feature reveal reveal-delay-1"><h4>&#128247; Social Autopilot</h4><p>Every completed job + review + photo set triggers AI-generated posts across Instagram, Facebook, X, LinkedIn, and GBP. Platform-specific formatting, hashtags, geo-tags. Your social media runs itself.</p><div class="rt-status building">&#9679; Building Now</div></div>
+    <div class="rt-feature reveal reveal-delay-2"><h4>&#128270; Neighborhood Lead Gen</h4><p>Crowdsourced lead generation that connects local residents with roofers. Community members report storm damage, upload photos, and earn referral bonuses on closed jobs.</p><div class="rt-status planned">&#9679; In Development</div></div>
+    <div class="rt-feature reveal reveal-delay-3"><h4>&#128200; Competitor Intelligence</h4><p>Tracks competitor rankings, review counts, and ad spend in your service area. Identifies keyword gaps and opportunities to outrank them.</p><div class="rt-status planned">&#9679; Planned</div></div>
+  </div>
+</div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta-section"><div class="container">
+  <h2 class="reveal">Let&rsquo;s Build<br><span>Something Great</span></h2>
+  <p class="reveal" style="font-size:1.05rem;color:var(--txt);max-width:500px;margin:0 auto">TopDown Roofing has the reputation, the skills, and the crew. Let us give you the systems to turn that into unstoppable growth &mdash; and the partnership to profit from what comes next.</p>
+  <div class="cta-steps reveal"><div class="cta-step"><div class="cta-step-num">1</div><div class="cta-step-text">Review the website we built</div></div><div class="cta-step"><div class="cta-step-num">2</div><div class="cta-step-text">Talk through any questions</div></div><div class="cta-step"><div class="cta-step-num">3</div><div class="cta-step-text">Say the word &mdash; launch in 2 weeks</div></div></div>
+  <div class="cta-contact reveal"><div class="cta-name">J &nbsp;|&nbsp; Resonating Ventures LLC</div><div class="cta-detail">(850) 273-6654 &nbsp;&bull;&nbsp; j@resonatingventures.us</div><div class="cta-sub">resonatingventures.us</div></div>
+</div></section>
+
+<footer><p>Confidential &mdash; Prepared exclusively for TopDown Roofing &bull; &copy; 2026 Resonating Ventures LLC</p></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const baSlider=document.getElementById('baSlider'),baBefore=document.getElementById('baBefore'),baDivider=document.getElementById('baDivider');let dragging=false;
+function updateSlider(x){const r=baSlider.getBoundingClientRect();let p=((x-r.left)/r.width)*100;p=Math.max(10,Math.min(90,p));baBefore.style.right=(100-p)+'%';baDivider.style.left=p+'%'}
+baSlider.addEventListener('mousedown',e=>{dragging=true;updateSlider(e.clientX)});window.addEventListener('mousemove',e=>{if(dragging)updateSlider(e.clientX)});window.addEventListener('mouseup',()=>dragging=false);
+baSlider.addEventListener('touchstart',e=>{dragging=true;updateSlider(e.touches[0].clientX)},{passive:true});window.addEventListener('touchmove',e=>{if(dragging)updateSlider(e.touches[0].clientX)},{passive:true});window.addEventListener('touchend',()=>dragging=false);
+function updateCalc(){const r=parseInt(document.getElementById('roofSlider').value),rev=r*12000,p=rev-997,roi=Math.round((p/997)*100);document.getElementById('roofCount').textContent=r+' extra roof'+(r>1?'s':'')+'/month';document.getElementById('calcRevenue').textContent='$'+rev.toLocaleString();document.getElementById('calcProfit').textContent='$'+p.toLocaleString();document.getElementById('calcROI').textContent=roi.toLocaleString()+'%'}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>
